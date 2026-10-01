@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodFriend - Your AI Food Buddy</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">FoodFriend</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li class="account-wrapper">
+            <a href="account.html" class="account-btn" title="My Account">
+              👤
+            </a>
+            <div class="account-tooltip">
+              <div class="account-name" id="accountName">Account</div>
+
+              <div class="account-joined" id="accountJoined">Joined: --</div>
+
+              <button type="button" class="logout-btn" onclick="logoutUser()">
+                Log Out
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-badge">Your AI food companion</div>
+        <h1>What are you <span>craving?</span></h1>
+        <p class="hero-description">
+          FoodFriend is your personal AI food buddy. Discover delicious meals
+          based on your taste, lifestyle, budget and mood.
+        </p>
+        <div class="hero-buttons">
+          <a href="discover.html" class="primary-btn">Explore meals</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+          alt="Delicious Food"
+          class="hero-food"
+        />
+        <div class="food-floating-card one">🍜 Healthy Noodles</div>
+        <div class="food-floating-card two">🍕 Fresh Pizza</div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="section-title">
+        <span>Why FoodFriend?</span>
+        <h2>More than just food recommendations</h2>
+        <p>
+          FoodFriend gets to know you and makes finding your next meal easier.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🍴</div>
+          <h3>Know your taste</h3>
+          <p>FoodFriend learns your favorite flavors and ingredients.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🥗</div>
+          <h3>Healthy choices</h3>
+          <p>Discover meals that fit your lifestyle and nutrition goals.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Match your budget</h3>
+          <p>Find delicious options without spending more than you want.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">❤️</div>
+          <h3>Match your mood</h3>
+          <p>Comfort food, something fresh, or something exciting.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Don't know what to eat?</h2>
+      <p>
+        Tell FoodFriend what you're craving and let your AI food buddy find
+        something delicious for you.
+      </p>
+      <a href="discover.html" class="cta-button">Explore meals</a>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">FoodFriend</a>
+          <p>
+            Your personal AI food companion, helping you discover meals you'll
+            love.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-chef">
+          <div class="footer-chef-icon">👨‍🍳</div>
+          <div class="footer-chef-text">
+            <h4>FoodFriend's Kitchen</h4>
+            <p>
+              Made for food lovers<br />
+              One meal at a time.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 FoodFriend. All rights reserved.</div>
+    </footer>
+
+    <div
+      class="chat-widget-btn"
+      onclick="toggleChatbot()"
+      aria-label="Open FoodFriend chat"
+    >
+      💬
+    </div>
+    <div class="chat-popup" id="chatPopup">
+      <aside class="chat-sidebar collapsed" id="chatSidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <span>🍊</span>
+            <h3>FoodFriend</h3>
+          </div>
+          <button
+            class="sidebar-close"
+            onclick="toggleChatSidebar()"
+            aria-label="Close sidebar"
+          >
+            ✕
+          </button>
+        </div>
+        <button class="new-chat-btn" onclick="startNewChat()">
+          <span>＋</span> New Chat
+        </button>
+
+        <div class="chat-history-list" id="chatHistoryList">
+          <p class="history-label">Recent chats</p>
+        </div>
+
+        <div class="sidebar-footer">
+          <span>🍽️</span>
+          <span>Your personal food companion</span>
+        </div>
+      </aside>
+
+      <section class="chat-main">
+        <div class="chat-header">
+          <div class="chat-header-left">
+            <button
+              class="chat-menu-btn"
+              onclick="toggleChatSidebar()"
+              aria-label="Toggle chat history"
+            >
+              ☰
+            </button>
+
+            <div class="bot-avatar">F</div>
+
+            <div class="bot-info">
+              <h3>FoodFriend</h3>
+              <p><span class="online-dot"></span> Online · AI Assistant</p>
+            </div>
+          </div>
+
+          <button
+            class="close-chat"
+            onclick="toggleChatbot()"
+            aria-label="Close chatbot"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot-message">
+            Hi twin! What are you in the mood for today?
+          </div>
+        </div>
+
+        <div class="chat-input-area">
+          <div class="chat-input-wrapper">
+            <input
+              type="text"
+              id="chatInput"
+              placeholder="Ask FoodFriend anything..."
+              onkeydown="handleChatKeyPress(event)"
+            />
+            <button
+              class="chat-send-btn"
+              onclick="sendChatMessage()"
+              aria-label="Send message"
+            >
+              ➤
+            </button>
+          </div>
+          <p class="chat-disclaimer">
+            FoodFriend can make mistakes. Check important details.
+          </p>
+        </div>
+      </section>
+    </div>
+    <script src="check.js"></script>
+    <script src="food.js"></script>
+    <script src="chat.js"></script>
+    <script type="module" src="acc.js"></script>
+  </body>
+</html>

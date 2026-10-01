@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discover Cuisines - FoodFriend</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">FoodFriend</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html" class="active">Discover</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li class="account-wrapper">
+            <a href="account.html" class="account-btn" title="My Account">
+              👤
+            </a>
+            <div class="account-tooltip">
+              <div class="account-name" id="accountName">Account</div>
+              <div class="account-joined" id="accountJoined">Joined: --</div>
+              <button type="button" class="logout-btn" onclick="logoutUser()">
+                Log Out
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="discover">
+      <div class="section-title">
+        <span>Explore Cuisines</span>
+        <h2>Discover delicious food</h2>
+        <p>
+          Explore different cuisines and let FoodFriend help you find your next
+          favorite meal.
+        </p>
+      </div>
+
+      <div class="food-grid">
+        <div class="food-card">
+          <img
+            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80"
+            alt="Italian"
+          />
+          <div class="food-card-content">
+            <h3>Italian</h3>
+          </div>
+        </div>
+        <div class="food-card">
+          <img
+            src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=80"
+            alt="Japanese"
+          />
+          <div class="food-card-content">
+            <h3>Japanese</h3>
+          </div>
+        </div>
+        <div class="food-card">
+          <img
+            src="https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=800&q=80"
+            alt="Asian"
+          />
+          <div class="food-card-content">
+            <h3>Asian</h3>
+          </div>
+        </div>
+        <div class="food-card">
+          <img
+            src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
+            alt="Grill"
+          />
+          <div class="food-card-content">
+            <h3>Grill & BBQ</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">FoodFriend</a>
+          <p>
+            Your personal AI food companion, helping you discover meals you'll
+            love.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-chef">
+          <div class="footer-chef-icon">👨‍🍳</div>
+          <div class="footer-chef-text">
+            <h4>FoodFriend's Kitchen</h4>
+            <p>
+              Made for food lovers<br />
+              One meal at a time.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 FoodFriend. All rights reserved.</div>
+    </footer>
+
+    <div
+      class="chat-widget-btn"
+      onclick="toggleChatbot()"
+      aria-label="Open FoodFriend chat"
+    >
+      💬
+    </div>
+    <div class="chat-popup" id="chatPopup">
+      <aside class="chat-sidebar collapsed" id="chatSidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <span>🍊</span>
+            <h3>FoodFriend</h3>
+          </div>
+          <button
+            class="sidebar-close"
+            onclick="toggleChatSidebar()"
+            aria-label="Close sidebar"
+          >
+            ✕
+          </button>
+        </div>
+
+        <button class="new-chat-btn" onclick="startNewChat()">
+          <span>＋</span> New Chat
+        </button>
+
+        <div class="chat-history-list" id="chatHistoryList">
+          <p class="history-label">Recent chats</p>
+        </div>
+
+        <div class="sidebar-footer">
+          <span>🍽️</span>
+          <span>Your personal food companion</span>
+        </div>
+      </aside>
+
+      <section class="chat-main">
+        <div class="chat-header">
+          <div class="chat-header-left">
+            <button
+              class="chat-menu-btn"
+              onclick="toggleChatSidebar()"
+              aria-label="Toggle chat history"
+            >
+              ☰
+            </button>
+
+            <div class="bot-avatar">F</div>
+
+            <div class="bot-info">
+              <h3>FoodFriend</h3>
+              <p><span class="online-dot"></span> Online · AI Assistant</p>
+            </div>
+          </div>
+          <button
+            class="close-chat"
+            onclick="toggleChatbot()"
+            aria-label="Close chatbot"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot-message">
+            Hi twin! What are you in the mood for today?
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <div class="chat-input-wrapper">
+            <input
+              type="text"
+              id="chatInput"
+              placeholder="Ask FoodFriend anything..."
+              onkeydown="handleChatKeyPress(event)"
+            />
+            <button
+              class="chat-send-btn"
+              onclick="sendChatMessage()"
+              aria-label="Send message"
+            >
+              ➤
+            </button>
+          </div>
+          <p class="chat-disclaimer">
+            FoodFriend can make mistakes. Check important details.
+          </p>
+        </div>
+      </section>
+    </div>
+    <script src="check.js"></script>
+    <script src="food.js"></script>
+    <script src="chat.js"></script>
+    <script type="module" src="acc.js"></script>
+  </body>
+</html>
